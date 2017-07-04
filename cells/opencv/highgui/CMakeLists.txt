@@ -1,4 +1,4 @@
-find_library(V4L2_LIBRARY v4l2)
+# find_library(V4L2_LIBRARY v4l2)
 
 if (V4L2_LIBRARY)
   message(STATUS "Adding support for v4l2 image capture")
@@ -6,8 +6,7 @@ if (V4L2_LIBRARY)
   set(EXTRA_LIB v4l2)
 endif()
 
-ectomodule(highgui DESTINATION ecto_opencv
-                   INSTALL
+ectomodule(highgui INSTALL
     module.cpp
     FPSDrawer.cpp
     DoubleDrawer.cpp
@@ -24,4 +23,9 @@ ectomodule(highgui DESTINATION ecto_opencv
     VideoWriter.cpp
     serialization.cpp
     )
-link_ecto(highgui ${OpenCV_LIBS} ${EXTRA_LIB} ${cv_backports_LIBRARIES})
+link_ecto(highgui
+    OPENCV3_HIGHGUI
+    OPENCV3_VIDEOIO
+    BOOST_FILESYSTEM
+    ${EXTRA_LIB}
+)

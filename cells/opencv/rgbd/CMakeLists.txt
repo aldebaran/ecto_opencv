@@ -1,5 +1,4 @@
-ectomodule(rgbd DESTINATION ecto_opencv
-                INSTALL
+ectomodule(rgbd INSTALL
                 Cleaner.cpp
                 ClusterDrawer.cpp
                 DepthSwapper.cpp

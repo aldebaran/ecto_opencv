@@ -1,5 +1,4 @@
-ectomodule(imgproc DESTINATION ecto_opencv
-                   INSTALL
+ectomodule(imgproc INSTALL
     module.cpp
     Adder.cpp
     BilateralFilter.cpp
@@ -23,4 +22,6 @@ ectomodule(imgproc DESTINATION ecto_opencv
     VerticalStepFilter.cpp
     )
 
-link_ecto(imgproc ${OpenCV_LIBS})
+link_ecto(imgproc
+  OPENCV3_IMGPROC
+)

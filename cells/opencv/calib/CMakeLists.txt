@@ -1,14 +1,13 @@
 
-ectomodule(calib DESTINATION ecto_opencv
-                 INSTALL
+ectomodule(calib INSTALL
   module.cpp
-  calib.cpp 
+  calib.cpp
   CameraIntrinsics.cpp
   PatternDrawer.cpp
   PatternDetector.cpp
   CircleDrawer.cpp
   SubrectRectifier.cpp
-  DepthTo3d.cpp
+  # DepthTo3d.cpp # needs opencv2/rgbd.hpp
   pose_drawing.cpp
   KConverter.cpp
   Latch.cpp
@@ -21,7 +20,6 @@ ectomodule(calib DESTINATION ecto_opencv
   CropBox.cpp
   )
 
-link_ecto(calib ${catkin_LIBRARIES}
-                ${opencv_candidate_LIBRARIES}
-                ${OpenCV_LIBRARIES}
+link_ecto(calib
+  OPENCV3_CALIB3D
 )

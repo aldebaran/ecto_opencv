@@ -1,9 +1,8 @@
-ectomodule(features2d DESTINATION ecto_opencv/ecto_cells
-                      INSTALL
+ectomodule(features2d INSTALL
   module.cpp
-  DescriptorExtractor.cpp
+  # DescriptorExtractor.cpp # depends on opencv contrib
   DrawKeypoints.cpp
-  FeatureDetector.cpp
+  # FeatureDetector.cpp
   KeypointsToMat.cpp
   LshMatcher.cpp
   MatchesToMat.cpp
@@ -13,7 +12,8 @@ ectomodule(features2d DESTINATION ecto_opencv/ecto_cells
   ransac_est.cpp
   )
 
-find_package(OpenCV REQUIRED)
-link_ecto(features2d ${catkin_LIBRARIES}
-                     ${OpenCV_LIBRARIES}
+link_ecto(features2d
+    OPENCV3_CALIB3D
+    OPENCV3_FEATURES2D
+    OPENCV3_IMGPROC
 )
