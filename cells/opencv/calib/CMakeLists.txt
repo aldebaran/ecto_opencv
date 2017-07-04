@@ -1,5 +1,5 @@
 
-ectomodule(calib INSTALL
+ectomodule(calib SUBFOLDER ecto_opencv INSTALL
   module.cpp
   calib.cpp
   CameraIntrinsics.cpp
