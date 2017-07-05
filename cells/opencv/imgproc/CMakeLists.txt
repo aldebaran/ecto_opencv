@@ -1,4 +1,4 @@
-ectomodule(imgproc SUBFOLDER ecto_opencv INSTALL
+ectomodule(imgproc DESTINATION ecto/opencv INSTALL
     module.cpp
     Adder.cpp
     BilateralFilter.cpp
