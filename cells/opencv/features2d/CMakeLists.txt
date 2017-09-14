@@ -1,4 +1,4 @@
-ectomodule(features2d DESTINATION ecto/opencv INSTALL
+ectomodule(features2d DESTINATION ecto_opencv INSTALL
   module.cpp
   # DescriptorExtractor.cpp # depends on opencv contrib
   DrawKeypoints.cpp

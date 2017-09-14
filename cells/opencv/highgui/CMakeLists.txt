@@ -6,7 +6,7 @@ if (V4L2_LIBRARY)
   set(EXTRA_LIB v4l2)
 endif()
 
-ectomodule(highgui DESTINATION ecto/opencv INSTALL
+ectomodule(highgui DESTINATION ecto_opencv INSTALL
     module.cpp
     FPSDrawer.cpp
     DoubleDrawer.cpp
