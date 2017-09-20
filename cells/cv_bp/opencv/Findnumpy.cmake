@@ -33,14 +33,13 @@
 # PYTHON_NUMPY_INCLUDE_DIR  - directory(-ies) that should be include to use numpy headers
 #
 #
-if(PYTHON_EXECUTABLE)
-    file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/determineNumpyPath.py "try: import numpy; print numpy.get_include()\nexcept: pass\n")
-    exec_program("${PYTHON_EXECUTABLE}"
-                 ARGS "\"${CMAKE_CURRENT_BINARY_DIR}/determineNumpyPath.py\""
+file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/determineNumpyPath.py "try: import numpy; print numpy.get_include()\nexcept: pass\n")
+qi_run_py_script(${CMAKE_CURRENT_BINARY_DIR}/determineNumpyPath.py
                  OUTPUT_VARIABLE PYTHON_NUMPY_INCLUDE_DIR
-                 )
-endif(PYTHON_EXECUTABLE)
+                )
 
 if(PYTHON_NUMPY_INCLUDE_DIR)
     set(PYTHON_NUMPY_FOUND 1 CACHE INTERNAL "Python numpy development package is available")
+else()
+	set(PYTHON_NUMPY_NOT_FOUND 1 CACHE INTERNAL "Python numpy development package is not available")
 endif(PYTHON_NUMPY_INCLUDE_DIR)
