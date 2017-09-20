@@ -16,12 +16,14 @@ qi_create_lib(opencv_boost_python SHARED
   cv_points.cpp
   cv_highgui.cpp
   highgui_defines.cpp
+  NO_RPATH
 )
 
 set_target_properties(opencv_boost_python
   PROPERTIES
   OUTPUT_NAME cv_bp
   PREFIX ""
+  INSTALL_RPATH "\$ORIGIN/lib;\$ORIGIN/../ecto/lib"
 )
 
 qi_use_lib(opencv_boost_python
