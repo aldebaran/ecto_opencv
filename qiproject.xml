@@ -1,6 +1,6 @@
 <project version="3">
   <maintainer email="sambrose@aldebaran.com">Surya Ambrose</maintainer>
-  <qibuild name="ecto_opencv" version="0.7.0-r4">
+  <qibuild name="ecto_opencv" version="0.7.0-r6">
     <depends buildtime="true" runtime="true" names="boost ecto python opencv3"/>
   </qibuild>
 </project>
